@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>IMPACT BUSINESS SOLUTIONS</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #d32f2f, #b71c1c);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      padding: 20px;
+    }
+
+    .hero-container {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 50px 60px;
+      border-radius: 12px;
+      backdrop-filter: blur(8px);
+      width: 100%;
+      max-width: 550px;
+    }
+
+    .company-title {
+      font-size: 26px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      margin-bottom: 5px;
+    }
+
+    .company-tagline {
+      font-size: 14px;
+      font-style: italic;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+
+    .welcome-text {
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+
+    .name-text {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 35px;
+    }
+
+    .btn {
+      padding: 14px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin: 10px 0;
+      transition: 0.3s ease;
+      width: 100%;
+      font-weight: bold;
+    }
+
+    .invoice-btn {
+      background: white;
+      color: #d32f2f;
+    }
+
+    .quotation-btn {
+      background: black;
+      color: white;
+    }
+
+    .btn:hover {
+      transform: scale(1.03);
+      opacity: 0.9;
+    }
+
+    @media (max-width: 480px) {
+      .hero-container {
+        padding: 35px 25px;
+      }
+
+      .company-title {
+        font-size: 20px;
+      }
+
+      .name-text {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="hero-container">
+
+    <div class="company-title">IMPACT BUSINESS SOLUTIONS</div>
+    <div class="company-tagline">The Complete Business Solutions</div>
+
+    <div class="welcome-text">Welcome</div>
+    <div class="name-text">Nufail Punnakkal</div>
+
+    <!-- Use Flask routes -->
+    <button class="btn invoice-btn" onclick="window.location.href='/invoice-form'">
+      Generate Invoice
+    </button>
+
+    <button class="btn quotation-btn" onclick="window.location.href='/quotation-form'">
+      Generate Quotation
+    </button>
+
+  </div>
+
+</body>
+</html>

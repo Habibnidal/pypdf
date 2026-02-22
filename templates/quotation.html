@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+
+    @page {
+      size: A4;
+      margin: 20mm;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+    }
+
+    /* QUOTATION TITLE RIGHT SIDE */
+    .quotation-wrapper {
+      text-align: right;
+      margin-bottom: 15px;
+    }
+
+    .quotation-title {
+      background: #e6e6e6;
+      color: #666;
+      font-size: 26px;
+      font-weight: bold;
+      padding: 10px 25px;
+      display: inline-block;
+      letter-spacing: 2px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .left-header { 
+      width: 70%; 
+    }
+
+    .right-header { 
+      width: 30%; 
+      font-size: 13px; 
+      text-align: right;
+    }
+
+    .tagline {
+      font-style: italic;
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .logo {
+      max-width: 220px;   /* FIXED for A4 */
+      margin-bottom: 6px;
+    }
+
+    .company-name {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .company-info {
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .red-bar {
+      height: 10px;
+      background: red;
+      margin: 10px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    th {
+      background: red;
+      color: white;
+      border: 1px solid black;
+      padding: 8px;
+      text-align: center;
+    }
+
+    td {
+      border: 1px solid black;
+      padding: 8px;
+      height: 28px;
+    }
+
+    th:last-child,
+    td:last-child {
+      text-align: right;
+    }
+
+    tr {
+      page-break-inside: avoid;
+    }
+
+    .client {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .footer-section {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      font-size: 13px;
+    }
+
+    .bank-details {
+      font-weight: bold;
+      line-height: 1.6;
+    }
+
+    .subtotal {
+      font-weight: bold;
+      font-size: 14px;
+      text-align: right;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<!-- QUOTATION TITLE -->
+<div class="quotation-wrapper">
+  <div class="quotation-title">QUOTATION</div>
+</div>
+
+<div class="header">
+
+  <!-- LEFT -->
+  <div class="left-header">
+    <div class="tagline">"The Complete Business Solutions"</div>
+
+    <!-- LOGO FROM STATIC FOLDER -->
+    <img src="{{ url_for('static', filename='impact_copy.png') }}" class="logo">
+
+    <div class="company-name">IMPACT BUSINESS SOLUTIONS FZ-LLC</div>
+
+    <div class="company-info">
+      RAKEZ, AMENITY CENTER - TOWER 2 , 2ND FLOOR, OFFICE NO 2C<br>
+      ALHAMRAH - AL JAZEERA , PHONE: 072366672 , 0556325027<br>
+      Email : info@ibsfzllc.ae
+    </div>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="right-header">
+    <div><strong>Date:</strong> {{ date }}</div>
+    <div><strong>Quote No:</strong> {{ quote_no }}</div>
+  </div>
+
+</div>
+
+<div class="red-bar"></div>
+
+<div class="client">
+  CLIENT NAME<br>
+  {{ client_name }}
+</div>
+
+<table>
+  <tr>
+    <th>DESCRIPTION</th>
+    <th>QTY</th>
+    <th>UNIT PRICE</th>
+    <th>TOTAL</th>
+  </tr>
+
+  {% for item in items %}
+  <tr>
+    <td>{{ item.description }}</td>
+    <td>{{ item.qty }}</td>
+    <td>{{ "%.2f"|format(item.price) }}</td>
+    <td>{{ "%.2f"|format(item.total) }} AED</td>
+  </tr>
+  {% endfor %}
+
+</table>
+
+<div class="footer-section">
+
+  <div class="bank-details">
+    PAYMENT VIA BANK :-<br>
+    BENEFICIARY NAME : NUFAIL PUNNAKKAL<br>
+    ACCOUNT NO : 557535132001 - BANK : ADCB<br>
+    IBAN NO : AE150030000557535132001
+  </div>
+
+  <div class="subtotal">
+    SUBTOTAL: {{ subtotal }} AED
+  </div>
+
+</div>
+
+<div class="red-bar"></div>
+
+</body>
+</html>
