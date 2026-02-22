@@ -4,5 +4,6 @@ nixPkgs = [
   "pango",
   "gdk-pixbuf",
   "glib",
-  "libffi"
+  "libffi",
+  "gcc"
 ]
